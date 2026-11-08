@@ -7,7 +7,8 @@
 Read the spoken content. Inspect sampled frames. Keep the original timestamps.
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![MCP](https://img.shields.io/badge/MCP-stdio-6C47FF)](https://modelcontextprotocol.io/)
+[![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-7CB342?logo=anthropic&logoColor=white)](https://modelcontextprotocol.io/)
+[![Powered by yt-dlp](https://img.shields.io/badge/Powered%20by-yt--dlp-111111?logo=youtube&logoColor=white)](https://github.com/yt-dlp/yt-dlp)
 [![Providers](https://img.shields.io/badge/AI%20providers-pluggable-00A67E)](#providers)
 [![Stars](https://img.shields.io/github/stars/Songjag/Vidsight-YouTube-Analysis-Skill?style=flat&label=stars)](https://github.com/Songjag/Vidsight-YouTube-Analysis-Skill/stargazers)
 [![Watchers](https://img.shields.io/github/watchers/Songjag/Vidsight-YouTube-Analysis-Skill?style=flat&label=watchers)](https://github.com/Songjag/Vidsight-YouTube-Analysis-Skill/watchers)
@@ -67,7 +68,14 @@ actually used.
 
 ## Quick start
 
-### 1. Install
+### 1. Clone the repository
+
+```sh
+git clone https://github.com/Songjag/Vidsight-YouTube-Analysis-Skill.git
+cd Vidsight-YouTube-Analysis-Skill
+```
+
+### 2. Install
 
 Requirements: **Python 3.11+**, [`ffmpeg`](https://ffmpeg.org/) in `PATH`, and
 [`uv`](https://docs.astral.sh/uv/) recommended.
@@ -76,7 +84,7 @@ Requirements: **Python 3.11+**, [`ffmpeg`](https://ffmpeg.org/) in `PATH`, and
 uv sync
 ```
 
-### 2. Configure
+### 3. Configure
 
 ```sh
 cp .env.example .env
@@ -96,7 +104,7 @@ LLM_SUPPORTS_IMAGES=true
 
 Never commit `.env` or paste an API key into an issue or chat.
 
-### 3. Validate and analyze
+### 4. Validate and analyze
 
 ```sh
 # Offline configuration check
