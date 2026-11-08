@@ -4,6 +4,9 @@ Vidsight 是一个 Python 工具包，用于结合带时间戳的字幕/转录�
 帧分析 YouTube 视频。项目提供可配置的 AI provider、STT 后端、CLI 以及
 stdio MCP server。
 
+![Stars](https://img.shields.io/github/stars/Songjag/Vidsight-YouTube-Analysis-Skill?style=flat&label=stars)
+![Watchers](https://img.shields.io/github/watchers/Songjag/Vidsight-YouTube-Analysis-Skill?style=flat&label=watchers)
+
 > 文档语言：[English](./en.md) · [Tiếng Việt](./vie.md) · [日本語](./jp.md)
 
 ## 功能
@@ -125,7 +128,7 @@ GGUF 不会自动下载模型。Vision 需要明确支持的 handler 和 project
 ## MCP server
 
 ```sh
-uv run vidsight --env-file /absolute/path/to/Vidsight/.env serve
+uv run vidsight --env-file yourpath/Vidsight/.env serve
 ```
 
 server 在 stdin/stdout 上使用 JSON-RPC。修改 `.env` 后需要重启。

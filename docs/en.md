@@ -4,9 +4,14 @@ Vidsight is a Python toolkit for analyzing YouTube videos from timestamped
 transcripts and sampled frames. It provides configurable AI providers, STT
 backends, a CLI, and an MCP server over stdio.
 
+![Stars](https://img.shields.io/github/stars/Songjag/Vidsight-YouTube-Analysis-Skill?style=flat&label=stars)
+![Watchers](https://img.shields.io/github/watchers/Songjag/Vidsight-YouTube-Analysis-Skill?style=flat&label=watchers)
+
 > Languages: [Tiếng Việt](./vie.md) · [中文](./cn.md) · [日本語](./jp.md)
 
 Architecture: [diagram and implementation notes](./architecture.md).
+
+Real test activity: [YouTube analysis test](./test-activity.md).
 
 ## Features
 
@@ -129,7 +134,7 @@ and projector file; the automatic handler is text-only.
 ## MCP server
 
 ```sh
-uv run vidsight --env-file /absolute/path/to/Vidsight/.env serve
+uv run vidsight --env-file yourpath/Vidsight/.env serve
 ```
 
 The server uses JSON-RPC on stdin/stdout. Restart it after changing `.env`.

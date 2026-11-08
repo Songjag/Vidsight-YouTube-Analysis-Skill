@@ -4,6 +4,9 @@ Vidsight は、タイムスタンプ付きの字幕・文字起こしとサン�
 フレームを使って YouTube 動画を分析する Python ツールキットです。設定可能な
 AI provider、STT バックエンド、CLI、stdio MCP server を提供します。
 
+![Stars](https://img.shields.io/github/stars/Songjag/Vidsight-YouTube-Analysis-Skill?style=flat&label=stars)
+![Watchers](https://img.shields.io/github/watchers/Songjag/Vidsight-YouTube-Analysis-Skill?style=flat&label=watchers)
+
 > 言語: [English](./en.md) · [Tiếng Việt](./vie.md) · [中文](./cn.md)
 
 ## 機能
@@ -126,7 +129,7 @@ projector ファイルが必要で、auto handler は text-only 用です。
 ## MCP server
 
 ```sh
-uv run vidsight --env-file /absolute/path/to/Vidsight/.env serve
+uv run vidsight --env-file yourpath/Vidsight/.env serve
 ```
 
 server は stdin/stdout で JSON-RPC を使用します。`.env` を変更した後は
