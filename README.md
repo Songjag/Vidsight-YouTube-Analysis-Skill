@@ -66,6 +66,26 @@ actually used.
 | Agent integration | MCP server over stdio with three typed tools |
 | Privacy | Sanitized errors and logs; no API keys or raw provider bodies |
 
+## Powered by yt-dlp
+
+Vidsight uses [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) as its YouTube
+ingestion layer. This gives the pipeline a reliable way to:
+
+- validate and normalize supported single-video YouTube URLs;
+- retrieve video metadata and duration before downloading;
+- select a bounded media format, preferring video up to 480p;
+- prevent playlist expansion with `noplaylist`;
+- retry transient download and fragment failures;
+- enforce a 500 MB file limit and a maximum 3600-second duration;
+- provide the downloaded media to OpenCV for timestamped frame sampling and
+  `ffmpeg` for audio extraction.
+
+`yt-dlp` handles media acquisition; it does not watch or interpret the video.
+Vidsight still reports whether the final result came from subtitles, STT,
+sampled frames, or a combination of those evidence sources. Availability can
+depend on YouTube restrictions, network conditions, video privacy settings,
+and the installed `yt-dlp` version.
+
 ## Quick start
 
 ### 1. Clone the repository
