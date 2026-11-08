@@ -21,7 +21,8 @@ then sends one normalized request to the provider selected from configuration.
 [MCP tools](#mcp-server) ·
 [Providers](#providers) ·
 [Architecture](docs/architecture.md) ·
-[Documentation](#documentation)
+[Documentation](#documentation) ·
+[Contributing](CONTRIBUTING.md)
 
 </div>
 
