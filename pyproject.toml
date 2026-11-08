@@ -1,0 +1,87 @@
+# Vidsight: HTTP providers and media tools, local inference in optional extras.
+
+[build-system]
+requires = ["hatchling>=1.26,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vidsight"
+version = "0.1.0"
+description = "YouTube video analysis with pluggable cloud and local AI providers"
+authors = [{ name = "Weita Team", email = "weitanguyen@proton.me" }]
+requires-python = ">=3.11"
+keywords = ["youtube", "video-analysis", "mcp", "multimodal", "llm"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    # Direct imports for typed MCP schemas and nonblocking worker dispatch.
+    "anyio>=4.5,<5",
+    "pydantic>=2.11,<3",
+    # MCP v2 introduces breaking changes; keep v1 until existing tools are migrated.
+    "mcp>=1.28,<2",
+    # All cloud and OpenAI-compatible providers use HTTP; no cloud SDK is required.
+    "httpx>=0.27,<1",
+    "python-dotenv>=1.0,<2",
+    # Video frame extraction, encoding and resizing.
+    "numpy>=1.26,<3",
+    "opencv-python-headless>=4.10,<5",
+    "pillow>=10,<13",
+    # Download YouTube media and retrieve subtitles.
+    "yt-dlp>=2025.1.1",
+    # No legacy implementation existed in this repository; use the instance API.
+    "youtube-transcript-api>=1.2,<2",
+    "requests>=2.32,<3",
+]
+
+[project.scripts]
+vidsight = "vidsight.cli:main"
+
+[project.urls]
+Contact = "mailto:contact@weita.org"
+
+[project.optional-dependencies]
+# Local in-process GGUF models. Installs native dependencies and may need C++ tools.
+local = [
+    "llama-cpp-python>=0.3,<1",
+]
+
+# CPU or GPU transcription. Keep heavier inference backends optional.
+stt-local = [
+    "faster-whisper>=1.1,<2",
+]
+
+# Install both local backends only when needed.
+all-local = [
+    "llama-cpp-python>=0.3,<1",
+    "faster-whisper>=1.1,<2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "pytest-asyncio>=0.24,<2",
+    "ruff>=0.9,<1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vidsight"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
